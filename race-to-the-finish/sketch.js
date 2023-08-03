@@ -8,6 +8,7 @@ let blueScore = 0;
 
 function setup() {
     createCanvas(800, 300);
+    background(0, 200, 0)
     rectMode(CENTER);
     strokeWeight(3);
 }
@@ -24,29 +25,29 @@ function draw() {
     // show scores
     textSize(60);
     fill(255, 0, 0);
-    text(redScore, 800, 100);
+    text(redScore, 600, 100);
     fill(0, 0, 255);
-    text(blueScore, 800, 225);
+    text(blueScore, 600, 225);
 
     // show finish line
-    line(600, 0 600, 300);
+    line(600, 0, 600, 300);
 
     // red ball
     fill(255, 0, 0);
-    ellipse(50, 50, redXPos, redYPos);
+    ellipse(redXPos, redYPos, 50, 50);
     
     // blue ball
     fill(0, 0, 255);
-    ellipse(50, 50, blueXPos, blueYPos);
+    ellipse(blueXPos, blueYPos, 50, 50);
 
     // crossed finish line
-    if (redXPos < 575 || blueXPos < 575) {
+    if (redXPos > 575 || blueXPos > 575) {
         if (redXPos > blueXPos) {
-            // blue wins
+            // red wins
             redScore += 1;
         } else if (blueXPos > redXPos) {
-            // red wins
-            blueScore = 1;
+            // blue wins
+            blueScore += 1;
         }
         // reset positions
         redXPos = 25;
